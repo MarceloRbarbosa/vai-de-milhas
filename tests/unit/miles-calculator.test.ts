@@ -27,6 +27,7 @@ it("should calculate miles for econimic trip", async () => {
     tripMock.service = ServiceClass.ECONOMIC;
     tripMock.affiliate = AffiliateStatus.BRONZE;
     tripMock.date = "2025-12-15";
+    tripMock.miles = false;
     
     const result = milesCalculatorService.calculateMiles(tripMock);
     
