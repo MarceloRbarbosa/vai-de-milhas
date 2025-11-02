@@ -2,7 +2,7 @@ import { generateMilesForTrip, getMilesFromCode } from "services/miles-service";
 import * as milesRepository from "repositories/miles-repository";
 import * as milesCalculatorService from "services/miles-calculator-service";;
 import { Trip } from "protocols";
-import createTripMock from "../factories/miles-factory";
+import createTripMock from "../factories/miles-service-factory";
 
 
 
