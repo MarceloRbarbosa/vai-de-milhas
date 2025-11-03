@@ -26,5 +26,21 @@ export default function createTripMock() {
 
 export async function cleanDb() {
     await prisma.miles.deleteMany();
-  }
+};
+
+export function fixedTripMock() {
+    const tripMock: Trip = {
+        code:"ABC123",
+        origin: { lat: 0, long: 0 },
+        destination: { lat: 1, long: 1 },
+        miles: false,
+        plane: "Boeing",
+        service: ServiceClass.ECONOMIC,
+        affiliate: AffiliateStatus.BRONZE,
+        date: "2025-01-15"
+      }
+    
+      return tripMock
+    
+}
   

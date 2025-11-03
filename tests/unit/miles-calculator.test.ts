@@ -1,5 +1,5 @@
 import * as distanceCalculatorService from "services/distances-calculator-service";
-import createTripMock from "../factories/miles-service-factory";
+import createTripMock, { fixedTripMock } from "../factories/miles-service-factory";
 import * as milesCalculatorService from "services/miles-calculator-service";
 import { AffiliateStatus, ServiceClass } from "protocols";
 
@@ -23,11 +23,7 @@ expect(result).toBe(0);
 })
 
 it("should calculate miles for econimic trip", async () => {
-    const tripMock = createTripMock();
-    tripMock.service = ServiceClass.ECONOMIC;
-    tripMock.affiliate = AffiliateStatus.BRONZE;
-    tripMock.date = "2025-12-15";
-    tripMock.miles = false;
+    const tripMock = fixedTripMock()
     
     const result = milesCalculatorService.calculateMiles(tripMock);
     
@@ -36,11 +32,9 @@ it("should calculate miles for econimic trip", async () => {
     })
 
 it("should calculate miles with birthday bonus", async () => {
-    const tripMock = createTripMock();
-    tripMock.service = ServiceClass.ECONOMIC;
-    tripMock.affiliate = AffiliateStatus.BRONZE;
-    tripMock.date = "2025-05-15";
-
+    const tripMock = fixedTripMock();
+    tripMock.date = "2025-5-01";
+    
     const result = milesCalculatorService.calculateMiles(tripMock);
     
     expect(result).toBe(1100);
